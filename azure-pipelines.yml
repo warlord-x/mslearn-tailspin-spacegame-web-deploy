@@ -76,16 +76,16 @@ stages:
 
 - template: build.yml
   parameters:
-    release_stage: Dev
-    release_dependsOn: Build
-    release_condition: |	
-      and	
-      (	
-        succeeded(),	
-        eq(variables['Build.SourceBranchName'], variables['releaseBranchName'])	
-      )
-    release_environment: dev
-    release_appName: $(WebAppNameDev)
+   release_stage: Dev
+   release_dependsOn: Build
+   release_condition: |	
+     and	
+     (	
+       succeeded(),	
+       eq(variables['Build.SourceBranchName'], variables['releaseBranchName'])	
+     )
+   release_environment: dev
+   release_appName: $(WebAppNameDev)
 
 - stage: 'Test'
   displayName: 'Deploy to the test environment'
